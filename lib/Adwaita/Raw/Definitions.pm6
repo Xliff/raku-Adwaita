@@ -11,6 +11,7 @@ unit package Adwaita::Raw::Definitions;
 constant adwaita is export = 'adwaita-1',v0;
 
 class AdwActionRow        is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwBin              is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwButtonContent    is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwCarousel         is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwClamp            is repr<CPointer> is export does GLib::Roles::Pointers { }
@@ -24,4 +25,5 @@ class AdwPreferencesGroup is repr<CPointer> is export does GLib::Roles::Pointers
 class AdwPreferencesRow   is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwSpringParams     is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwStatusPage       is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwToast            is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwWindow           is repr<CPointer> is export does GLib::Roles::Pointers { }
