@@ -80,6 +80,7 @@ class Adwaita::Status::Page is GTK::Widget:ver<4> {
         );
       },
       STORE => -> $, GtkWidget() $val is copy {
+        #self.setBuildableChild(0, $val);
         $gv.object = $val;
         self.prop_set('child', $gv);
       }
@@ -148,6 +149,15 @@ class Adwaita::Status::Page is GTK::Widget:ver<4> {
         self.prop_set('title', $gv);
       }
     );
+  }
+
+  method append (GtkWidget() $widget)
+    is also<
+      add_child
+      add-child
+    >
+  {
+    self.set_child($widget);
   }
 
   method get_child (
