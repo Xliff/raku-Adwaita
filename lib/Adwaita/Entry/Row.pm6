@@ -50,11 +50,10 @@ class Adwaita::Entry::Row is Adwaita::Preferences::Row {
     $o.ref if $ref;
     $o;
   }
-
   multi method new ( *%a ) {
-    my $adwaita-entry-row = adw_entry_row_new();
+    my $adw-entry-row = adw_entry_row_new();
 
-    my $o = $adwaita-entry-row ?? self.bless( :$adwaita-entry-row ) !! Nil;
+    my $o = $adw-entry-row ?? self.bless( :$adw-entry-row ) !! Nil;
     $o.setAttributes if $o && +%a;
     $o;
   }
@@ -269,10 +268,49 @@ class Adwaita::Entry::Row is Adwaita::Preferences::Row {
 
 }
 
-class Adwaita::Entry::Row::Password is Adwaita::Entry::Row {
-  has AdwPasswordEntryRow $!adw-pew is implementor;
+our subset AdwPasswordEntryRowAncestry is export of Mu
+  where AdwPasswordEntryRow | AdwEntryRowAncestry;
 
-  method new ( *%a ) {
+class Adwaita::Entry::Row::Password is Adwaita::Entry::Row {
+  has AdwPasswordEntryRow $!adw-per is implementor;
+
+  submethod BUILD ( :$adw-entry-password ) {
+    self.setAdwPasswordEntryRow($adw-entry-password) if $adw-entry-password
+  }
+
+  method setAdwPasswordEntryRow (AdwPasswordEntryRowAncestry $_) {
+    my $to-parent;
+
+    $!adw-per = do {
+      when AdwPasswordEntryRow {
+        $to-parent = cast(AdwPreferencesRow, $_);
+        $_;
+      }
+
+      default {
+        $to-parent = $_;
+        cast(AdwPasswordEntryRow, $_);
+      }
+    }
+    self.setAdwEntryRow($to-parent);
+  }
+
+  method Adwaita::Raw::Definitions::AdwPasswordEntryRow
+    is also<AdwPasswordEntryRow>
+  { $!adw-per }
+
+  multi method new (
+    $adw-entry-password where * ~~ AdwPasswordEntryRowAncestry,
+
+    :$ref = True
+  ) {
+    return unless $adw-entry-password;
+
+    my $o = self.bless( :$adw-entry-password );
+    $o.ref if $ref;
+    $o;
+  }
+  multi method new ( *%a ) {
     my $adw-entry-password = adw_password_entry_row_new();
 
     my $o = $adw-entry-password ?? self.bless( :$adw-entry-password ) !! Nil;
