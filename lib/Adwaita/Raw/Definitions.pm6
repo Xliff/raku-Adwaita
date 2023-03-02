@@ -27,4 +27,5 @@ class AdwSpringParams     is repr<CPointer> is export does GLib::Roles::Pointers
 class AdwStatusPage       is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwStyleManager     is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwToast            is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwToastOverlay     is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwWindow           is repr<CPointer> is export does GLib::Roles::Pointers { }
