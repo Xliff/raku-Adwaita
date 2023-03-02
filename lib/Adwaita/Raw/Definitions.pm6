@@ -13,6 +13,7 @@ our %Adwaita-Widget-Types is export;
 constant ADWAITA_MANIFEST_FILE is export = "adwaita-type-manifest.json";
 constant adwaita               is export = 'adwaita-1',v0;
 
+class AdwAvatar           is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwActionRow        is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwBin              is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwButtonContent    is repr<CPointer> is export does GLib::Roles::Pointers { }
