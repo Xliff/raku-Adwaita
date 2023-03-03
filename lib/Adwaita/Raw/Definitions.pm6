@@ -24,6 +24,7 @@ class AdwEnumListItem     is repr<CPointer> is export does GLib::Roles::Pointers
 class AdwEnumListModel    is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwExpanderRow      is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwComboRow         is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwHeaderBar        is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwLeaflet          is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwLeafletPage      is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwPasswordEntryRow is repr<CPointer> is export does GLib::Roles::Pointers { }
