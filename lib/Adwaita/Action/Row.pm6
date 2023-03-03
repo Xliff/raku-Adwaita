@@ -160,7 +160,14 @@ class Adwaita::Action::Row is Adwaita::Preferences::Row {
     adw_action_row_add_prefix($!adw-ar, $widget);
   }
 
-  method add_suffix (GtkWidget() $widget) is also<add-suffix> {
+  method add_suffix (GtkWidget() $widget)
+    is also<
+      add-suffix
+      append
+      add_child
+      add-child
+    >
+  {
     #self.addBuildableChild($widget)
     adw_action_row_add_suffix($!adw-ar, $widget);
   }
