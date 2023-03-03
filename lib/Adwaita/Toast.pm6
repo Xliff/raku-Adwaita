@@ -195,6 +195,14 @@ class Adwaita::Toast {
     );
   }
 
+  method Button-Clicked {
+    self.connect($!adw-t, 'button-clicked');
+  }
+
+  method Dismissed {
+    self.connect($!adw-t, 'dismissed');
+  }
+
   method dismiss {
     adw_toast_dismiss($!adw-t);
   }
