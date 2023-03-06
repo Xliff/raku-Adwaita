@@ -8,10 +8,14 @@ use Adwaita::Raw::Entry::Row;
 
 use Adwaita::Preferences::Row;
 
+use GTK::Roles::Editable:ver<4>;
+
 our subset AdwEntryRowAncestry is export of Mu
-  where AdwEntryRow | AdwPreferencesRowAncestry;
+  where AdwEntryRow | GtkEditable | AdwPreferencesRowAncestry;
 
 class Adwaita::Entry::Row is Adwaita::Preferences::Row {
+  also does GTK::Roles::Editable;
+
   has AdwEntryRow $!adw-er is implementor;
 
   submethod BUILD ( :$adw-entry-row ) {
@@ -27,12 +31,19 @@ class Adwaita::Entry::Row is Adwaita::Preferences::Row {
         $_;
       }
 
+      when GtkEditable {
+        $to-parent = cast(AdwPreferencesRow, $_);
+        $!gtk-e    = $_;
+        cast(AdwEntryRow, $_);
+      }
+
       default {
         $to-parent = $_;
         cast(AdwEntryRow, $_);
       }
     }
     self.setAdwPreferencesRow($to-parent);
+    self.roleInit-GtkEditable;
   }
 
   method Adwaita::Raw::Definitions::AdwEntryRow
