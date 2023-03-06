@@ -99,3 +99,9 @@ sub adw_avatar_set_text (
   is      native(adwaita)
   is      export
 { * }
+
+sub adw_avatar_get_type
+  returns GType
+  is      native(adwaita)
+  is      export
+{ * }

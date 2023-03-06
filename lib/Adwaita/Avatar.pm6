@@ -61,7 +61,14 @@ class Adwaita::Avatar is GTK::Widget:ver<4> {
     my $adw-avatar = adw_avatar_new($s, $text, $si);
 
     my $o = $adw-avatar ?? self.bless( :$adw-avatar ) !! Nil;
-    $o.setAttributes(%a);
+    $o.setAttributes(%a) if $o && %a;;
+    $o;
+  }
+  multi method new ( *%a ) {
+    my $adw-avatar = ::?CLASS.new-object-ptr( ::?CLASS.get_type );
+
+    my $o = $adw-avatar ?? self.bless( :$adw-avatar ) !! Nil;
+    $o.setAttributes(%a) if $o && %a;;
     $o;
   }
 
@@ -148,7 +155,14 @@ class Adwaita::Avatar is GTK::Widget:ver<4> {
     );
   }
 
-  method draw_to_texture (Int() $scale_factor, :$raw = False)
+  method unsetCustomImage {
+    self.custom-image = GdkPaintable;
+  }
+
+  method draw_to_texture (
+    Int()  $scale_factor = self.scale_factor,
+          :$raw          = False
+  )
     is also<draw-to-texture>
   {
     my gint $s = $scale_factor;
@@ -182,6 +196,12 @@ class Adwaita::Avatar is GTK::Widget:ver<4> {
 
   method get_text is also<get-text> {
     adw_avatar_get_text($!adw-a);
+  }
+
+  method get_type is also<get-type> {
+    state ($n, $t);
+
+    unstable_get_type( self.^name, &adw_avatar_get_type, $n, $t );
   }
 
   method set_custom_image (GdkPaintable() $custom_image)
