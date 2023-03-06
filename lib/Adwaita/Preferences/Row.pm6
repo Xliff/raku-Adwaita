@@ -1,5 +1,7 @@
 use v6.c;
 
+use Method::Also;
+
 use GLib::Raw::Traits;
 use Adwaita::Raw::Types;
 use Adwaita::Raw::Preferences::Row;
@@ -74,7 +76,7 @@ class Adwaita::Preferences::Row is GTK::ListBox::Row:ver<4> {
   }
 
   # Type: boolean
-  method title-selectable is rw  is g-property {
+  method title-selectable is rw  is g-property is also<title_selectable> {
     my $gv = GLib::Value.new( G_TYPE_BOOLEAN );
     Proxy.new(
       FETCH => sub ($) {
@@ -89,7 +91,7 @@ class Adwaita::Preferences::Row is GTK::ListBox::Row:ver<4> {
   }
 
   # Type: boolean
-  method use-markup is rw  is g-property {
+  method use-markup is rw  is g-property is also<use_markup> {
     my $gv = GLib::Value.new( G_TYPE_BOOLEAN );
     Proxy.new(
       FETCH => sub ($) {
@@ -104,7 +106,7 @@ class Adwaita::Preferences::Row is GTK::ListBox::Row:ver<4> {
   }
 
   # Type: boolean
-  method use-underline is rw  is g-property {
+  method use-underline is rw  is g-property is also<use_underline> {
     my $gv = GLib::Value.new( G_TYPE_BOOLEAN );
     Proxy.new(
       FETCH => sub ($) {
@@ -118,39 +120,43 @@ class Adwaita::Preferences::Row is GTK::ListBox::Row:ver<4> {
     );
   }
 
-  method get_title {
+  method get_title is also<get-title> {
     adw_preferences_row_get_title($!adw-pr);
   }
 
-  method get_title_selectable {
+  method get_title_selectable is also<get-title-selectable> {
     so adw_preferences_row_get_title_selectable($!adw-pr);
   }
 
-  method get_use_markup {
+  method get_use_markup is also<get-use-markup> {
     so adw_preferences_row_get_use_markup($!adw-pr);
   }
 
-  method get_use_underline {
+  method get_use_underline is also<get-use-underline> {
     so adw_preferences_row_get_use_underline($!adw-pr);
   }
 
-  method set_title (Str() $title) {
+  method set_title (Str() $title) is also<set-title> {
     adw_preferences_row_set_title($!adw-pr, $title);
   }
 
-  method set_title_selectable (Int() $title_selectable) {
+  method set_title_selectable (Int() $title_selectable)
+    is also<set-title-selectable>
+  {
     my gboolean $t = $title_selectable;
 
     adw_preferences_row_set_title_selectable($!adw-pr, $t);
   }
 
-  method set_use_markup (Int() $use_markup) {
+  method set_use_markup (Int() $use_markup) is also<set-use-markup> {
     my gboolean $u = $use_markup;
 
     adw_preferences_row_set_use_markup($!adw-pr, $u);
   }
 
-  method set_use_underline (Int() $use_underline) {
+  method set_use_underline (Int() $use_underline)
+    is also<set-use-underline>
+  {
     my gboolean $u = $use_underline;
 
     adw_preferences_row_set_use_underline($!adw-pr, $u);
