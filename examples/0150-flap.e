@@ -79,10 +79,14 @@ $a.Activate.tap( -> *@a {
   my $aem  = Adwaita::ListModel::Enum.new(
     Adwaita::Enums::FlapFoldPolicy.get_type
   );
-
+  my $ex1  = GTK::Expression::Property.new(
+    Adwaita::ListModel::Enum::Item.get_type,
+    'name'
+  );
   my $cr1  = Adwaita::Combo::Row.new(
-    title => 'Fold Policy',
-    model => $aem
+    title      => 'Fold Policy',
+    model      => $aem,
+    expression => $ex1
   );
   $cr1.bind-swapped('selected', $f, 'fold-policy', :create, :bi);
 
@@ -100,18 +104,18 @@ $a.Activate.tap( -> *@a {
 
   my $pp2  = Adwaita::Preferences::Page.new;
   my $pg2  = Adwaita::Preferences::Group.new;
-  my $ar2  = Adwaita::Action::Row.new(
-    title => 'Flap Position'
-  );
 
   $ar1.add-child($gs1);
-  $pg1.add-child($_) for $cr1, $ar2;
+  $pg1.add-child($_) for $cr1, $ar1;
   $pp1.add($pg1);
   $s.add-titled($pp1, 'folding', 'Folding');
 
   my $box2 = GTK::Box.new(
     valign      => GTK_ALIGN_CENTER,
     css-classes => <linked>
+  );
+  my $ar2  = Adwaita::Action::Row.new(
+    title => 'Flap Position'
   );
   my $tb3  = GTK::Button::Toggle.new(
     label => 'Start',
@@ -130,9 +134,14 @@ $a.Activate.tap( -> *@a {
   my $aem2 = Adwaita::ListModel::Enum.new(
     Adwaita::Enums::FlapTransitionType.get_type
   );
+  my $ex2  = GTK::Expression::Property.new(
+    Adwaita::ListModel::Enum::Item.get_type,
+    'name'
+  );
   my $cr2  = Adwaita::Combo::Row.new(
-    model => $aem2,
-    title => 'Transition Type',
+    model      => $aem2,
+    title      => 'Transition Type',
+    expression => $ex2
   );
   $cr2.bind-swapped('selected', $f, 'transition-type', :create, :bi);
 
