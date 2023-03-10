@@ -7,6 +7,7 @@ use Adwaita::Raw::Types;
 use Adwaita::Raw::Preferences::Page;
 
 use GTK::Widget:ver<4>;
+use Adwaita::ListModel::Enum;
 
 use GLib::Roles::Implementor;
 
@@ -36,7 +37,6 @@ class Adwaita::Preferences::Page is GTK::Widget:ver<4> {
     }
     self.setGtkWidget($to-parent);
   }
-
   method Adwaita::Raw::Definitions::AdwPreferencesPage
     is also<AdwPreferencePage>
   { $!adw-pp }
@@ -56,7 +56,7 @@ class Adwaita::Preferences::Page is GTK::Widget:ver<4> {
     my $adw-pref-page = adw_preferences_page_new();
 
     my $o = $adw-pref-page ?? self.bless( :$adw-pref-page ) !! Nil;
-    $o.setAttributes($adw-pref-page);
+    $o.setAttributes(%a);
     $o;
   }
 
