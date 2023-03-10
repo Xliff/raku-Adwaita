@@ -48,7 +48,11 @@ class Adwaita::ListModel::Enum {
   method Adwaita::Raw::Definitions::AdwEnumListModel
   { $!adw-elm }
 
-  multi method new ($adw-enum-model where * ~~ AdwEnumListModelAncestry , :$ref = True) {
+  multi method new (
+    $adw-enum-model where * ~~ AdwEnumListModelAncestry,
+
+    :$ref = True
+  ) {
     return unless $adw-enum-model;
 
     my $o = self.bless( :$adw-enum-model );
