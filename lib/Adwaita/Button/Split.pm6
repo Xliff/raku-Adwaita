@@ -58,7 +58,7 @@ class Adwaita::Button::Split is GTK::Widget:ver<4> {
     my $adw-split-button = adw_split_button_new();
 
     my $o = $adw-split-button ?? self.bless( :$adw-split-button ) !! Nil;
-    $o.setAttribute(%a);
+    $o.setAttributes(%a) if $o && +%a;
     $o;
   }
 
@@ -81,7 +81,7 @@ class Adwaita::Button::Split is GTK::Widget:ver<4> {
           $proper
         );
       },
-      STORE => -> $, GtkWidget $val is copy {
+      STORE => -> $, GtkWidget() $val is copy {
         $gv.object = $val;
         self.prop_set('child', $gv);
       }
