@@ -65,7 +65,7 @@ class Adwaita::Entry::Row is Adwaita::Preferences::Row {
     my $adw-entry-row = adw_entry_row_new();
 
     my $o = $adw-entry-row ?? self.bless( :$adw-entry-row ) !! Nil;
-    $o.setAttributes if $o && +%a;
+    $o.setAttributes(%a) if $o && +%a;
     $o;
   }
 
@@ -193,7 +193,13 @@ class Adwaita::Entry::Row is Adwaita::Preferences::Row {
     adw_entry_row_add_prefix($!adw-er, $widget);
   }
 
-  method add_suffix (GtkWidget() $widget) is also<add-suffix> {
+  method add_suffix (GtkWidget() $widget)
+    is also<
+      add-suffix
+      add_child
+      add-child
+    >
+  {
     #$widget.set-data('child-type', 'suffix');
     #self.appendBuildableWidget($widget);
     adw_entry_row_add_suffix($!adw-er, $widget);
