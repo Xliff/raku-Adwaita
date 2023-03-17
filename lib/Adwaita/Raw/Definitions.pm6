@@ -38,6 +38,7 @@ class AdwPreferencesRow          is repr<CPointer> is export does GLib::Roles::P
 class AdwPreferencesWindow       is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwPropertyAnimationTarget is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwSplitButton             is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwSpringAnimation         is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwSpringParams            is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwSqueezer                is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwSqueezerPage            is repr<CPointer> is export does GLib::Roles::Pointers { }
