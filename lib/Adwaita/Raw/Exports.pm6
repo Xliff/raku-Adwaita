@@ -8,5 +8,6 @@ BEGIN {
   @adwaita-exports = <
     Adwaita::Raw::Definitions
     Adwaita::Raw::Enums
+    Adwaita::Raw::Subs
   >;
 }

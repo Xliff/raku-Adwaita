@@ -53,6 +53,7 @@ need GTK::Raw::Structs:ver<4>;
 need GTK::Raw::Subs:ver<4>;
 need Adwaita::Raw::Definitions;
 need Adwaita::Raw::Enums;
+need Adwaita::Raw::Subs;
 
 BEGIN {
   glib-re-export($_) for |@glib-exports,
