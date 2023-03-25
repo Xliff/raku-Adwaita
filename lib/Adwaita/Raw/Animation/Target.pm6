@@ -13,7 +13,7 @@ unit package Adwaita::Raw::Animation::Target;
 ### /usr/src/libadwaita-1-1.3~alpha/src/adw-animation-target.h
 
 sub adw_callback_animation_target_new (
-           &callback,
+           &callback (gdouble, gpointer),
   gpointer $user_data,
            &destroy (gpointer)
 )
