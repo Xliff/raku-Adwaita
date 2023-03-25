@@ -175,6 +175,12 @@ sub adw_flap_transition_type_get_type
   is      export
 { * }
 
+sub adw_easing_get_type
+  returns GType
+  is      export
+  is      native(adwaita)
+{ * }
+
 class Adwaita::Enums::FlapTransitionType {
   also does GLib::Roles::StaticClass;
 
@@ -187,5 +193,15 @@ class Adwaita::Enums::FlapTransitionType {
       $n,
       $t
     );
+  }
+}
+
+class Adwaita::Enums::Easing {
+  also does GLib::Roles::StaticClass;
+
+  method get_type is also<get-type> {
+    state ($n, $t);
+
+    unstable_get_type( self.^name, &adw_easing_get_type, $n, $t );
   }
 }
