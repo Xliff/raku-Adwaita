@@ -47,6 +47,7 @@ class AdwSqueezerPage            is repr<CPointer> is export does GLib::Roles::P
 class AdwStatusPage              is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwStyleManager            is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwTabBar                  is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwTabButton               is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwTabPage                 is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwTabOverview             is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwTabView                 is repr<CPointer> is export does GLib::Roles::Pointers { }
