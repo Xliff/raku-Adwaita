@@ -12,6 +12,7 @@ our %Adwaita-Widget-Types is export;
 
 constant ADWAITA_MANIFEST_FILE is export = "adwaita-type-manifest.json";
 constant adwaita               is export = 'adwaita-1',v0;
+constant adwaita-prefix        is export = 'Adw';
 
 class AdwActionRow               is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwAnimation               is repr<CPointer> is export does GLib::Roles::Pointers { }
@@ -31,6 +32,7 @@ class AdwFlap                    is repr<CPointer> is export does GLib::Roles::P
 class AdwHeaderBar               is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwLeaflet                 is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwLeafletPage             is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwMessageDialog           is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwPasswordEntryRow        is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwPreferencesGroup        is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwPreferencesPage         is repr<CPointer> is export does GLib::Roles::Pointers { }
@@ -44,6 +46,9 @@ class AdwSqueezer                is repr<CPointer> is export does GLib::Roles::P
 class AdwSqueezerPage            is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwStatusPage              is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwStyleManager            is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwTabBar                  is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwTabPage                 is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwTabView                 is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwTimedAnimation          is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwToast                   is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwToastOverlay            is repr<CPointer> is export does GLib::Roles::Pointers { }
