@@ -3,6 +3,7 @@ use v6.c;
 use NativeCall;
 
 use GLib::Raw::Definitions;
+use GLib::Raw::Subs;
 use Adwaita::Raw::Definitions;
 use Adwaita::Raw::Enums;
 
@@ -25,3 +26,11 @@ sub adw_easing_ease (
   is      native(adwaita)
   is      export
 { * }
+
+sub ADW-writeTypeToManifest(
+  \O,
+  $file   = '',
+  $f      = "type-manifest.json",
+) {
+  writeTypeToManifest(O, $file, $f, prefix => adwaita-prefix);
+}
