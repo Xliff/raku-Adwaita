@@ -118,3 +118,9 @@ sub adw_spring_animation_set_value_to (
   is      native(adwaita)
   is      export
 { * }
+
+sub adw_spring_animation_get_type
+  returns GType
+  is      native(adwaita)
+  is      export
+{ * }
