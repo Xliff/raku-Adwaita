@@ -239,6 +239,12 @@ class Adwaita::Animation::Spring {
     );
   }
 
+  method get_type {
+    state ($n, $t);
+
+    unstable_get_type( self.^name, &adw_spring_animation_get_type, $n, $t );
+  }
+
   method get_value_from is also<get-value-from> {
     adw_spring_animation_get_value_from($!adw-sa);
   }
