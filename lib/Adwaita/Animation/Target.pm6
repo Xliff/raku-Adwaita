@@ -44,7 +44,7 @@ class Adwaita::Animation::Target {
 
   multi method new (
     $adw-animation-target where * ~~ AdwAnimationTargetAncestry,
-    
+
     :$ref = True
   ) {
     return unless $adw-animation-target;
@@ -62,13 +62,27 @@ class Adwaita::Animation::Target {
 
 }
 
-  # method adw_callback_animation_target_new (
-  #   gpointer               $user_data,
-  #   GDestroyNotify         $destroy
-  # ) {
-  #   adw_callback_animation_target_new($!adw-at, $user_data, $destroy);
-  # }
-  #
+class Adwaita::Animation::Target::Callback is Adwaita::Animation::Target {
+  submethod BUILD ( :$adw-animation-callback ) {
+    self.setAnimationTarget($adw-animation-callback) if $adw-animation-callback;
+  }
+
+  method new (
+              &animation-callback,
+    gpointer  $user_data           = gpointer,
+              &destroy             = %DEFAULT-CALLBACKS<GDestroyNotify>
+  ) {
+    my $adw-callback-animation = adw_callback_animation_target_new(
+      &animation-callback,
+      $user_data,
+      $destroy
+    );
+
+    $adw-callback-animation ?? self.bless( :$adw-callback-animation ) !! Nil
+  }
+
+}
+
   # method adw_property_animation_target_get_object {
   #   adw_property_animation_target_get_object($!adw-at);
   # }
