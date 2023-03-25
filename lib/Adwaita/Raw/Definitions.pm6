@@ -48,6 +48,7 @@ class AdwStatusPage              is repr<CPointer> is export does GLib::Roles::P
 class AdwStyleManager            is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwTabBar                  is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwTabPage                 is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwTabOverview             is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwTabView                 is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwTimedAnimation          is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwToast                   is repr<CPointer> is export does GLib::Roles::Pointers { }

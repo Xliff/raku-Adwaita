@@ -3,9 +3,9 @@ use v6.c;
 use Method::Also;
 use NativeCall;
 
-use Adwaita::Raw::Types:ver<4>;
+use Adwaita::Raw::Types;
 
-role Adwaita::Roles::Signals::Tab::View:ver<4> {
+role Adwaita::Roles::Signals::Tab::View {
   has %!signals-adw-tv;
 
   method connect-tab-page (
