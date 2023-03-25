@@ -11,11 +11,14 @@ use Adwaita::Raw::Tab::View;
 use GTK::Widget:ver<4>;
 
 use GLib::Roles::Implementor;
+use Adwaita::Roles::Signals::Tab::View;
 
 our subset AdwTabViewAncestry is export of Mu
   where AdwTabView | GtkWidgetAncestry;
 
 class Adwaita::Tab::View is GTK::Widget:ver<4> {
+  also does Adwaita::Roles::Signals::Tab::View;
+
   has AdwTabView $!adw-tv is implementor;
 
   submethod BUILD ( :$adw-tab-view ) {
@@ -213,6 +216,34 @@ class Adwaita::Tab::View is GTK::Widget:ver<4> {
         self.prop_set('shortcuts', $gv);
       }
     );
+  }
+
+  method Close-Page {
+    self.connect-tab-page($!adw-tv, 'close-page');
+  }
+
+  method Create-Window {
+    self.connect($!adw-tv, 'create-window');
+  }
+
+  method Indicator-Activated {
+    self.connect-tab-page($!adw-tv, 'indicator-activated');
+  }
+
+  method Page-Attached {
+    self.connect-page-action($!adw-tv, 'page-attached');
+  }
+
+  method Page-Detached {
+    self.connect-page-action($!adw-tv, 'page-detached');
+  }
+
+  method Page-Reordered {
+    self.connect-page-action($!adw-tv, 'page-reordered');
+  }
+
+  method Setup-Menu {
+    self.connect-page($!adw-tv, 'setup-menu');
   }
 
   method add_page (GtkWidget() $child, AdwTabPage() $parent)
