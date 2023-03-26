@@ -55,3 +55,4 @@ class AdwTimedAnimation          is repr<CPointer> is export does GLib::Roles::P
 class AdwToast                   is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwToastOverlay            is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwWindow                  is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwWindowTitle             is repr<CPointer> is export does GLib::Roles::Pointers { }
