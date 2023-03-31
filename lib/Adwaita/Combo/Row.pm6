@@ -8,6 +8,7 @@ use Adwaita::Raw::Combo::Row;
 
 use Adwaita::Action::Row;
 
+use GLib::Value;
 use GTK::Expression:ver<4>;
 use GTK::List::Item::Factory:ver<4>;
 use GTK::Widget:ver<4>;
@@ -64,20 +65,20 @@ class Adwaita::Combo::Row is Adwaita::Action::Row {
     $o;
   }
 
-  # Type: GtkListItemFactory
+  # Type: GtkExpression
   method expression ( :$raw = False ) is rw  is g-property {
     my $gv = GLib::Value.new( GTK::Expression.get_type );
     Proxy.new(
       FETCH => sub ($) {
         self.prop_get('expression', $gv);
         propReturnObject(
-          $gv.object,
+          $gv.expression,
           $raw,
           |GTK::Expression.getTypePair
         );
       },
       STORE => -> $, GtkExpression() $val is copy {
-        $gv.object = $val;
+        $gv.expression = $val;
         self.prop_set('expression', $gv);
       }
     );
