@@ -15,6 +15,7 @@ constant adwaita               is export = 'adwaita-1',v0;
 constant adwaita-prefix        is export = 'Adw';
 
 class AdwActionRow               is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwApplicationWindow       is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwAnimation               is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwAnimationTarget         is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwAvatar                  is repr<CPointer> is export does GLib::Roles::Pointers { }
