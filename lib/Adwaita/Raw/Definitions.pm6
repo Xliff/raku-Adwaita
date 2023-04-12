@@ -23,6 +23,7 @@ class AdwBanner                  is repr<CPointer> is export does GLib::Roles::P
 class AdwBin                     is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwButtonContent           is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwCarousel                is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwClampScrollable         is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwClamp                   is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwComboRow                is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwEntryRow                is repr<CPointer> is export does GLib::Roles::Pointers { }
