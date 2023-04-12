@@ -5,6 +5,7 @@ use NativeCall;
 use GLib::Raw::Traits;
 use Adwaita::Raw::Types;
 
+use Adwaita::View::Stack;
 use GTK::Widget:ver<4>;
 
 use GLib::Roles::Implementor;
@@ -26,8 +27,12 @@ class Adwaita::View::Switcher is GTK::Widget:ver<4> {
     AdwViewSwitcherPolicyEnum($p);
   }
 
-  method get_stack {
-    adw_view_switcher_get_stack($!adw-vs);
+  method get_stack ( $raw = False ) {
+    propReturnObject(
+      adw_view_switcher_get_stack($!adw-vs),
+      $raw,
+      |Adwaita::View::Stack.getTypePair
+    );
   }
 
   method set_policy (Int() $policy) {
