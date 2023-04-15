@@ -9,7 +9,7 @@ use GTK::Grid:Ver<4>;
 use Adwaita::Button::Content;
 use Adwaita::Button::Split;
 use Adwaita::Clamp;
-use Adwaita::Main;
+use Adwaita::Application;
 use Adwaita::Status::Page;
 
 my $a = GTK::Application.new(
@@ -20,7 +20,7 @@ my $a = GTK::Application.new(
 my $menu;
 
 $a.Activate.tap( -> *@a {
-  Adwaita::Main.init;
+  Adwaita::Application.init;
 
   $menu = GIO::Menu.new(
     'Item ' «~« (1..3)

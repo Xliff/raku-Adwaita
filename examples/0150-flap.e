@@ -3,11 +3,12 @@ use v6.c;
 use Adwaita::Raw::Types;
 
 use GTK::Application;
+use GLib::Object::Closure:ver<4>;
 use Adwaita::Action::Row;
 use Adwaita::Combo::Row;
 use Adwaita::Flap;
 use Adwaita::ListModel::Enum;
-use Adwaita::Main;
+use Adwaita::Application;
 use Adwaita::Preferences::Group;
 use Adwaita::Preferences::Page;
 use GTK::Box:ver<4>;
@@ -24,12 +25,12 @@ my $a = GTK::Application.new(
   height => 480
 );
 
-sub enum-name($e) {
+sub enum-name ($e) {
   $e.Str.split('_').tail.lc.tc
 }
 
 $a.Activate.tap( -> *@a {
-  Adwaita::Main.init;
+  Adwaita::Application.init;
 
   my $box1 = GTK::Box.new-vbox;
   my $hb   = GTK::HeaderBar.new;
@@ -79,16 +80,33 @@ $a.Activate.tap( -> *@a {
   my $aem  = Adwaita::ListModel::Enum.new(
     Adwaita::Enums::FlapFoldPolicy.get_type
   );
-  my $ex1  = GTK::Expression::Property.new(
-    Adwaita::ListModel::Enum::Item.get_type,
-    'name'
-  );
+
   my $cr1  = Adwaita::Combo::Row.new(
     title      => 'Fold Policy',
-    model      => $aem,
-    expression => $ex1
+    model      => $aem
   );
   $cr1.bind-swapped('selected', $f, 'fold-policy', :create, :bi);
+  my $clo  = GLib::Object::Closure::C.new-object(
+   $cr1,
+   -> *@a {
+     CATCH {
+       default { .message.say; .backtrace.concice.say }
+     }
+
+     say "A: { @a.gist }";
+
+     # my $li = Adwaita::ListModel::Enum::Item.new(
+     #   cast(AdwEnumListItem, @a.head)
+     # );
+     #
+     # enum-name($li.value);
+  });
+  my $ex1  = GTK::Expression::Closure.new(
+    $clo,
+    type   => G_TYPE_STRING#,
+    #params => ( GTK::Expression.new )
+  );
+  $cr1.expression = $ex1;
 
   my $gs1  = GTK::Switch.new(
     name => 'locked_switch',

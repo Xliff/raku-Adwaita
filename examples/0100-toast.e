@@ -6,7 +6,7 @@ use GTK::Application:ver<4>;
 use GTK::Button:ver<4>;
 use Adwaita::Action::Row;
 use Adwaita::Clamp;
-use Adwaita::Main;
+use Adwaita::Application;
 use Adwaita::Status::Page;
 use Adwaita::Toast;
 use Adwaita::Toast::Overlay;
@@ -24,7 +24,7 @@ sub dismiss-ut {
 }
 
 $a.Activate.tap( -> *@a {
-  Adwaita::Main.init;
+  Adwaita::Application.init;
 
   my $to = Adwaita::Toast::Overlay.new;
 

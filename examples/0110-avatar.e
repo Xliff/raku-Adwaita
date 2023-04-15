@@ -15,7 +15,7 @@ use GTK::ListBox;
 use GTK::ScrolledWindow;
 use GTK::Switch;
 use GTK::Button::Spin;
-use Adwaita::Main;
+use Adwaita::Application;
 use Adwaita::Action::Row;
 use Adwaita::Avatar;
 use Adwaita::Clamp;
@@ -89,7 +89,7 @@ sub populate-contacts {
 }
 
 $a.Activate.tap( -> *@a {
-  Adwaita::Main.init;
+  Adwaita::Application.init;
 
   my $sw = GTK::ScrolledWindow.new(
     hscrollbar-policy => GTK_POLICY_NEVER

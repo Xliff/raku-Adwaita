@@ -9,7 +9,7 @@ use Adwaita::Action::Row;
 use Adwaita::Banner;
 use Adwaita::Clamp;
 use Adwaita::Entry::Row;
-use Adwaita::Main;
+use Adwaita::Application;
 use Adwaita::Status::Page;
 use Adwaita::Toast::Overlay;
 use Adwaita::Preferences::Group;
@@ -20,7 +20,7 @@ my $a = GTK::Application.new(
 );
 
 $a.Activate.tap( -> *@a {
-  Adwaita::Main.init;
+  Adwaita::Application.init;
 
   my $to = Adwaita::Toast::Overlay.new;
 
