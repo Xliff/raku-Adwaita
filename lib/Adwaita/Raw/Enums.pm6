@@ -34,6 +34,13 @@ package Adwaita::Raw::Enums {
     ADW_COLOR_SCHEME_FORCE_DARK
   >;
 
+  constant AdwDialogPresentationMode is export := guint32;
+  enum AdwDialogPresentationModeEnum is export <
+    ADW_DIALOG_AUTO
+    ADW_DIALOG_FLOATING
+    ADW_DIALOG_BOTTOM_SHEET
+  >;
+
   constant AdwEasing is export := guint32;
   our enum AdwEasingEnum is export <
     ADW_LINEAR
