@@ -15,6 +15,7 @@ my constant forced = 0;
 unit package Adwaita::Raw::Types;
 
 need Cairo;
+need GLib::Raw::Debug;
 need GLib::Raw::Definitions;
 need GLib::Raw::Enums;
 need GLib::Raw::Exceptions;
