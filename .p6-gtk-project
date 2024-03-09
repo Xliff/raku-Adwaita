@@ -3,6 +3,6 @@ type-prefix=Adw
 modules=Adwaita::Raw::Types
 backups=backup,bitbucket,google-backup,azure-backupm,hut
 lib=adwaita
-include_directory=/usr/src/libadwaita-1-1.3~alpha/src
+include_directory=/usr/src/libadwaita/src
 exec=p6gtk4exec
 idir-avail=True
