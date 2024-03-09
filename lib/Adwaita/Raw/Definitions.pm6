@@ -22,12 +22,14 @@ class AdwAnimationTarget         is repr<CPointer> is export does GLib::Roles::P
 class AdwAvatar                  is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwBanner                  is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwBin                     is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwBreakpoint              is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwButtonContent           is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwCarousel                is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwClamp                   is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwClampLayout             is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwClampScrollable         is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwComboRow                is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwDialog                  is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwEntryRow                is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwEnumListItem            is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwEnumListModel           is repr<CPointer> is export does GLib::Roles::Pointers { }
