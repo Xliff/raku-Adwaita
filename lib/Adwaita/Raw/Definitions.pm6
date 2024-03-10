@@ -14,6 +14,7 @@ constant ADWAITA_MANIFEST_FILE is export = "adwaita-type-manifest.json";
 constant adwaita               is export = 'adwaita-1',v0;
 constant adwaita-prefix        is export = 'Adw';
 
+class AdwAboutDialog             is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwActionRow               is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwApplication             is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwApplicationWindow       is repr<CPointer> is export does GLib::Roles::Pointers { }
