@@ -19,6 +19,20 @@ package Adwaita::Raw::Enums {
     ADW_ANIMATION_FINISHED
   >;
 
+  constant AdwBreakpointConditionLengthType is export := guint32;
+  our enum AdwBreakpointConditionLengthTypeEnum is export <
+    ADW_BREAKPOINT_CONDITION_MIN_WIDTH
+    ADW_BREAKPOINT_CONDITION_MAX_WIDTH
+    ADW_BREAKPOINT_CONDITION_MIN_HEIGHT
+    ADW_BREAKPOINT_CONDITION_MAX_HEIGHT
+  >;
+
+  constant AdwBreakpointConditionRatioType is export := guint32;
+  our enum AdwBreakpointConditionRatioTypeEnum is export <
+    ADW_BREAKPOINT_CONDITION_MIN_ASPECT_RATIO
+    ADW_BREAKPOINT_CONDITION_MAX_ASPECT_RATIO
+  >;
+
   constant AdwCenteringPolicy is export := guint32;
   our enum AdwCenteringPolicyEnum is export <
     ADW_CENTERING_POLICY_LOOSE
@@ -101,6 +115,13 @@ package Adwaita::Raw::Enums {
     ADW_LEAFLET_TRANSITION_TYPE_OVER
     ADW_LEAFLET_TRANSITION_TYPE_UNDER
     ADW_LEAFLET_TRANSITION_TYPE_SLIDE
+  >;
+
+  constant AdwLengthUnit is export := guint32;
+  our enum AdwLengthUnitEnum is export <
+    ADW_LENGTH_UNIT_PX
+    ADW_LENGTH_UNIT_PT
+    ADW_LENGTH_UNIT_SP
   >;
 
   constant AdwNavigationDirection is export := guint32;
