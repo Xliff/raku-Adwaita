@@ -58,6 +58,7 @@ class AdwSpringParams            is repr<CPointer> is export does GLib::Roles::P
 class AdwSqueezer                is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwSqueezerPage            is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwSwipeTracker            is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwToolbarView             is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwViewStack               is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwViewStackPage           is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwViewSwitcher            is repr<CPointer> is export does GLib::Roles::Pointers { }
