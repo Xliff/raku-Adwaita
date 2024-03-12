@@ -174,6 +174,13 @@ package Adwaita::Raw::Enums {
     ADW_TOAST_PRIORITY_HIGH
   >;
 
+  constant AdwToolbarStyle is export := guint32;
+  our enum AdwToolbarStyleEnum is export <
+    ADW_TOOLBAR_FLAT
+    ADW_TOOLBAR_RAISED
+    ADW_TOOLBAR_RAISED_BORDER
+  >;
+
   constant AdwViewSwitcherPolicy is export := guint32;
   our enum AdwViewSwitcherPolicyEnum is export <
     ADW_VIEW_SWITCHER_POLICY_NARROW
