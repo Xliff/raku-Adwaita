@@ -44,6 +44,7 @@ class AdwLeafletPage             is repr<CPointer> is export does GLib::Roles::P
 class AdwMessageDialog           is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwNavigationView          is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwNavigationPage          is repr<CPointer> is export does GLib::Roles::Pointers { }
+class AdwNavigationSplitView     is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwOverlaySplitView        is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwPasswordEntryRow        is repr<CPointer> is export does GLib::Roles::Pointers { }
 class AdwPreferencesDialog       is repr<CPointer> is export does GLib::Roles::Pointers { }
